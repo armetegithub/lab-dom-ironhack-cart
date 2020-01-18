@@ -21,32 +21,70 @@ constructor (){
 // document.querySelector(".pu").innerHtml(barbacoa.price);
 
 
-Number(document.querySelectorAll(".pu span")[0].innerText);
-
-
-function updateSubtot($product) {
-
-
- let price= Number(document.querySelector('.pu span').innerText);
-
-let quantity = Number(document.querySelector('.qty input').value);
-
-let subtotal = document.querySelector('.subtot span'); 
 
 
 
-subtotal.innerHTML = price * quantity;
+function updateSubtot(product) {
 
+ 
+    let price= Number(product.querySelector(".pu span").innerText);
+    console.log(price)
+    let quantity = Number(product.querySelector(".qty input").value);
+    let subtotal = product.querySelector(".subtot span");
+    subtotal.innerHTML = price * quantity;
+    return subtotal;
+      // Iteration 1.1
+    
+   
 
-return subtotal;
-
-
-
-  // Iteration 1.1
 }
 
 function calcAll() {
-  // Iteration 1.2
-  updateSubtot();
-}
-$calc.onclick = calcAll;
+  let tr = document.querySelectorAll(".product")
+  console.log(tr)
+     tr.forEach(function(product, i){updateSubtot(product)});
+   }
+
+ $calc.onclick = calcAll;
+
+function addCell(cart){
+
+  function updateSubtot(product) {
+    let price= Number(product.querySelector(".pu span").innerText);
+    console.log(price)
+    let quantity = Number(product.querySelector(".qty input").value);
+    let subtotal = product.querySelector(".subtot span");
+    subtotal.innerHTML = price * quantity;
+    return subtotal;
+      // Iteration 1.1
+    }
+    
+   
+   
+  
+     // Iteration 1.1
+   }
+   
+   function calcAll() {
+     // Iteration 1.2
+  
+      let tr = document.querySelectorAll(".product")
+      console.log(tr)
+         tr.forEach(function(product, i){updateSubtot(product)});
+       
+   }
+   $calc.onclick = calcAll;
+   
+   
+   
+  //  function addRow(){
+  //   document.getElementById("cart").insertRow(-1).innerHTML = '<td></td><td></td><td></td><td></td><td>';
+  // }
+
+  // addRow();
+
+
+   
+
+
+
